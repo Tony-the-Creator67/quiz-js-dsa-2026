@@ -1,0 +1,39 @@
+/* Paleta (ajuste no Adobe Color se quiser a sua): */
+:root {
+  --fundo: #f4f6fb;
+  --cartao: #ffffff;
+  --texto: #1b2338;
+  --primaria: #3b4cca;
+  --primaria-escura: #2c3aa3;
+  --acerto: #1f8a4c;
+  --erro: #c0392b;
+  --borda: #d5daea;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; background: var(--fundo); color: var(--texto); }
+.app { max-width: 640px; margin: 0 auto; padding: 16px; min-height: 100vh; }
+.cabecalho h1 { margin: 8px 0; font-size: 1.5rem; color: var(--primaria); }
+.info { display: flex; justify-content: space-between; font-size: 1rem; margin-bottom: 8px; }
+.barra { height: 10px; background: var(--borda); border-radius: 6px; overflow: hidden; margin-bottom: 20px; }
+.barra-preenchida { height: 100%; background: var(--primaria); transition: width .3s; }
+.enunciado { font-size: 1.25rem; line-height: 1.4; }
+.opcoes { display: grid; gap: 10px; }
+.opcao { text-align: left; padding: 14px; font-size: 1rem; background: var(--cartao); color: var(--texto); border: 2px solid var(--borda); border-radius: 10px; cursor: pointer; }
+.opcao:hover:not(:disabled) { border-color: var(--primaria); }
+.opcao.selecionada { border-color: var(--primaria); background: #e8ebff; }
+.opcao.certa { border-color: var(--acerto); background: #e3f6ea; }
+.opcao.errada { border-color: var(--erro); background: #fbe7e4; }
+.opcao:disabled { cursor: default; }
+.acoes { margin-top: 20px; }
+.botao-principal { width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 600; color: #fff; background: var(--primaria); border: none; border-radius: 10px; cursor: pointer; }
+.botao-principal:hover:not(:disabled) { background: var(--primaria-escura); }
+.botao-principal:disabled { opacity: .5; cursor: not-allowed; }
+.resultado { background: var(--cartao); padding: 20px; border-radius: 12px; border: 1px solid var(--borda); }
+.nota { font-size: 2rem; font-weight: 700; color: var(--primaria); margin: 4px 0; }
+.revisar li { margin-bottom: 8px; line-height: 1.4; }
+@media (min-width: 768px) {
+  .app { padding: 40px 24px; }
+  .cabecalho h1 { font-size: 2rem; }
+  .opcoes { grid-template-columns: 1fr 1fr; }
+  .botao-principal { width: auto; padding: 14px 32px; }
+}
